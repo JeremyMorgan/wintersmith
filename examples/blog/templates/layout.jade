@@ -13,18 +13,51 @@ html(lang='en')
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
       link(rel='stylesheet', href='/css/main.css')
+      link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
   body(class=bodyclass)
+
+.navbar.navbar-inverse.navbar-top(role='navigation')
+    .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Hacker Ramblings
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='#') Home
+            li
+              a(href='#about') About
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                | My Projects
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#') Menu Item
+               
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                | Contact Me
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#') Contact Page
+              
     header.header
-      div.content-wrap
-        block header
-          div.logo
-            h1
-              a(href=locals.url)= locals.name
-            p.description= locals.description
-    div#content
-      div.content-wrap
-        block content
-          h2 Welcome to zombocom!
+  container
+    .row.clearfix
+        .col-md-12.column
+          .row.clearfix
+            .col-md-1.column
+            .col-md-10.column
+              block content
+            .col-md-1.column
+
+
     footer
       div.content-wrap
         block footer
